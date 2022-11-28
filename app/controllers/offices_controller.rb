@@ -5,11 +5,11 @@ class OfficesController < ApplicationController
   end
 
   def show
-    @Office = Office.find(params[:id])
+    @office = Office.find(params[:id])
     render json: @Office
   end
 
-  def create 
+  def create
     @office = Office.new(office_params)
     if @office.save
       render json: @office, status: :created, location: @office
@@ -18,12 +18,12 @@ class OfficesController < ApplicationController
     end
   end
 
-  def delete 
+  def delete
     Service.find(params[:id]).destroy
   end
 
+  private
 
-  private 
   def office_params
     params.require(:office).permit(:title, :description, :area, :occupancy, :images, :basic_price, :address)
   end
