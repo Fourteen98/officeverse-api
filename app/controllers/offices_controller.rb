@@ -6,7 +6,7 @@ class OfficesController < ApplicationController
 
   def show
     @office = Office.find(params[:id])
-    render json: @Office
+    render json: @office
   end
 
   def create
