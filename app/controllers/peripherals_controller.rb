@@ -1,5 +1,5 @@
 class PeripheralsController < ApplicationController
-  before_action :set_peripheral, only: %i[ show update destroy ]
+  before_action :set_peripheral, only: %i[show update destroy]
 
   # GET /peripherals
   def index
@@ -39,13 +39,14 @@ class PeripheralsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_peripheral
-      @peripheral = Peripheral.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def peripheral_params
-      params.require(:peripheral).permit(:name, :description, :price)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_peripheral
+    @peripheral = Peripheral.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def peripheral_params
+    params.require(:peripheral).permit(:name, :description, :price)
+  end
 end
