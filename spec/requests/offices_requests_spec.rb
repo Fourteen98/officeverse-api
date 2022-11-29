@@ -44,18 +44,18 @@ RSpec.describe 'Officess', type: :request do
         occupancy: 5, basic_price: 30.2, address: Faker::Address.full_address }
     end
     context 'when request attributes are valid' do
-      before { post '/api/v1/offices', params: {office: valid_attributes} }
+      before { post '/api/v1/offices', params: { office: valid_attributes } }
       it 'returns status code 201' do
         expect(response).to have_http_status(201)
       end
     end
     context 'when an invalid request' do
-      before { post '/api/v1/offices', params: {office: {}} }
+      before { post '/api/v1/offices', params: { office: {} } }
       it 'returns status code 422' do
         expect(response).to have_http_status(422)
       end
       it 'returns a failure message' do
-        expect(response.body).to include("value is empty")
+        expect(response.body).to include('value is empty')
       end
     end
   end

@@ -20,8 +20,8 @@ module Api
         else
           render json: @office.errors, status: 422
         end
-        rescue StandardError
-          render json: 'Invalid entry, or value is empty', status: 422
+      rescue StandardError
+        render json: 'Invalid entry, or value is empty', status: 422
       end
 
       def destroy
