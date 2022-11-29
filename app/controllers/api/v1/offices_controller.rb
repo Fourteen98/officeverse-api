@@ -9,19 +9,23 @@ module Api
       def show
         @office = Office.find(params[:id])
         render json: @office
+      rescue StandardError
+        render json: "Couldn't find office with 'id'=#{params[:id]}", status: 404
       end
 
       def create
         @office = Office.new(office_params)
         if @office.save
-          render json: @office, status: :created, location: @office
+          render json: @office, status: :created
         else
-          render json: @office.errors, status: :unprocessable_entity
+          render json: @office.errors, status: 422
         end
+      rescue StandardError
+        render json: 'Invalid entry, or value is empty', status: 422
       end
 
-      def delete
-        Service.find(params[:id]).destroy
+      def destroy
+        Office.find(params[:id]).destroy
       end
 
       private
