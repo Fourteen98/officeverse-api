@@ -6,5 +6,6 @@ Rails.application.routes.draw do
       resources :offices
     end
   end
-  root "users#index"
+  root "api/v1/offices#index"
+
 end

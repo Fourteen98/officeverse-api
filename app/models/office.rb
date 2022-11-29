@@ -1,4 +1,9 @@
 class Office < ApplicationRecord
+  belongs_to :user
+
+  has_many :reservations
+  has_many :users, through: :reservations
+
   validates :title, presence: true
   validates :description, presence: true
   validates :area, presence: true

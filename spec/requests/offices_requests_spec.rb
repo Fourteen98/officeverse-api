@@ -1,4 +1,4 @@
-RSpec.describe 'Officess', type: :request do
+RSpec.describe 'Offices', type: :request do
   # initialize test data
   let!(:offices) { create_list(:office, 5) }
   let(:office_id) { offices.first.id }

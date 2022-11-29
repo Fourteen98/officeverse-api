@@ -7,5 +7,6 @@ FactoryBot.define do
     images { Faker::LoremFlickr.image(size: '50x50', search_terms: ['office']) }
     basic_price { Faker::Number.decimal(l_digits: 2) }
     address { Faker::Address.full_address }
+    user
   end
 end

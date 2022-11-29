@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_28_150819) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_29_193713) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,8 +22,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_150819) do
     t.string "images"
     t.decimal "basic_price", default: "0.0"
     t.string "address"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_offices_on_user_id"
   end
 
   create_table "peripherals", force: :cascade do |t|
@@ -32,6 +34,27 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_150819) do
     t.decimal "price", default: "0.0"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "peripherals_reservations", id: false, force: :cascade do |t|
+    t.bigint "reservation_id", null: false
+    t.bigint "peripheral_id", null: false
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.date "start_date"
+    t.date "end_date"
+    t.bigint "user_id", null: false
+    t.bigint "office_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["office_id"], name: "index_reservations_on_office_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
+  end
+
+  create_table "reservations_services", id: false, force: :cascade do |t|
+    t.bigint "reservation_id", null: false
+    t.bigint "service_id", null: false
   end
 
   create_table "services", force: :cascade do |t|
@@ -50,4 +73,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_150819) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "offices", "users"
+  add_foreign_key "reservations", "offices"
+  add_foreign_key "reservations", "users"
 end
