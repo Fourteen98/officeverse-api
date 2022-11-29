@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :offices
 
   has_many :reservations
   has_many :offices, through: :reservations
