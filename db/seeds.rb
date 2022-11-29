@@ -15,12 +15,16 @@ end
   Service.create(name: Faker::Lorem.words(number: 1) , description: Faker::Lorem.sentence, price: Faker::Number.decimal(l_digits: 2))
 end
 
-9.times do 
-  Office.create(title: Faker::Lorem.words(number: 1), description: Faker::Lorem.sentence, area: Faker::Lorem.words(number: 1), occupancy: Faker::Number.number(digits: 1), images: Faker::LoremFlickr.image(size: "50x50", search_terms: ['office']), basic_price: Faker::Number.decimal(l_digits: 2), address: Faker::Address.full_address, user_id: Faker::Number.number(digits: 1))
+9.times do |office|
+  Office.create(title: Faker::Lorem.words(number: 1), description: Faker::Lorem.sentence, area: Faker::Lorem.words(number: 1), occupancy: Faker::Number.number(digits: 1), images: Faker::LoremFlickr.image(size: "50x50", search_terms: ['office']), basic_price: Faker::Number.decimal(l_digits: 2), address: Faker::Address.full_address, user_id: office+1)
 end
 
 9.times do 
   Peripheral.create(name: Faker::Lorem.words(number: 1), description: Faker::Lorem.sentence, price: Faker::Number.decimal(l_digits: 2))
+end
+
+9.times do |reservation|
+  Reservation.create(start_date: Faker::Date.between(from: 4.days.ago, to: 2.days.ago), end_date: Faker::Date.between(from: 1.days.ago, to: Date.today), peripherals: [], services: [], user_id: reservation+1, office_id: reservation+1)
 end
 
 p 'Created 9 users'
