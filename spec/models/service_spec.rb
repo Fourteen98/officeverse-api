@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe Service, type: :model do 
-  subject do 
+RSpec.describe Service, type: :model do
+  subject do
     Service.new(name: 'Test', description: 'Test', price: 10)
   end
 
@@ -11,12 +11,12 @@ RSpec.describe Service, type: :model do
     end
 
     it 'is not valid without a name' do
-      subject.name = ""
+      subject.name = ''
       expect(subject).to_not be_valid
     end
 
     it 'is not valid without a price' do
-      subject.price = ""
+      subject.price = ''
       expect(subject).to_not be_valid
     end
 
