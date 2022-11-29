@@ -23,7 +23,7 @@ module Api
         end
       end
 
-      def delete
+      def destroy
         Service.find(params[:id]).destroy
       end
 
