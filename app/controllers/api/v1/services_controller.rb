@@ -1,8 +1,9 @@
 module Api
   module V1
     class ServicesController < ApplicationController
+      before_action :set_reservation
       def index
-        @services = Service.all
+        @services = @reservation.services
 
         render json: @services
       end
@@ -28,6 +29,11 @@ module Api
       end
 
       private
+
+      # Use callbacks to share common setup or constraints between actions.
+      def set_reservation
+        @reservation = Reservation.find(params[:reservation_id])
+      end
 
       # Only allow a list of trusted parameters through.
       def service_params

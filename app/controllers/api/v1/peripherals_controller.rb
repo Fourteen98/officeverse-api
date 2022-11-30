@@ -2,10 +2,11 @@ module Api
   module V1
     class PeripheralsController < ApplicationController
       before_action :set_peripheral, only: %i[show update destroy]
+      before_action :set_reservation
 
       # GET /peripherals
       def index
-        @peripherals = Peripheral.all
+        @peripherals = @reservation.peripherals
 
         render json: @peripherals
       end
@@ -41,6 +42,10 @@ module Api
       end
 
       private
+
+      def set_reservation
+        @reservation = Reservation.find(params[:reservation_id])
+      end
 
       # Use callbacks to share common setup or constraints between actions.
       def set_peripheral

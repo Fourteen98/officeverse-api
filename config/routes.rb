@@ -1,15 +1,12 @@
 Rails.application.routes.draw do
-  get 'reservations/index'
-  get 'reservations/show'
-  get 'reservations/create'
-  get 'reservations/destroy'
   namespace :api do
     namespace :v1 do
       resources :users do 
-        resources :reservations
+        resources :reservations do
+          resources :services
+          resources :peripherals
+        end
       end
-      resources :services
-      resources :peripherals
       resources :offices
     end
   end
