@@ -19,7 +19,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_193713) do
     t.string "description"
     t.string "area"
     t.integer "occupancy", default: 0
-    t.string "images"
+    t.string "images", array: true
     t.decimal "basic_price", default: "0.0"
     t.string "address"
     t.bigint "user_id", null: false
