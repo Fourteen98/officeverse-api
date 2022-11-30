@@ -6,16 +6,18 @@ module Api
 
       def index
         @reservations = @user.reservations
-        render json: @reservations
+        render json: @reservations, include: [:office, :services, :peripherals]
       end
 
       def show
-        render json: @reservation
+        render json: @reservation, include: [:office, :services, :peripherals]
       end
 
       def create; end
 
-      def destroy; end
+      def destroy
+        @reservation.destroy
+      end
 
       private
 
