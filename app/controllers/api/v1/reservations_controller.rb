@@ -13,7 +13,19 @@ module Api
         render json: @reservation, include: [:office, :services, :peripherals]
       end
 
-      def create; end
+      def create
+        @reservation = Reservation.new(start_date: params[:start_date], end_date: params[:end_date], office_id: params[:office_id], user_id: @user.id)
+        @reservation.service_ids = params[:service_ids]
+        @reservation.peripheral_ids = params[:peripheral_ids]
+        # binding.b
+        # @reservation.service_ids << reservation_params[:service_ids]
+
+        if @reservation.save
+          render json: @reservation, include: [:office, :services, :peripherals], status: :created
+        else
+          render json: @reservation.errors, status: :unprocessable_entity
+        end
+      end
 
       def destroy
         @reservation.destroy
@@ -25,6 +37,11 @@ module Api
       def set_reservation
         @reservation = Reservation.find(params[:id])
       end
+
+      # Only allow a list of trusted parameters through.
+      # def reservation_params
+      #   params.require(:reservation).permit(:start_date, :end_date, :office_id, :services, peripheral_ids: []).with_defaults(user_id: @user.id)
+      # end
     end
   end
 end
