@@ -8,6 +8,8 @@ Rails.application.routes.draw do
         end
       end
       resources :offices
+      get 'services', to: 'services#all'
+      get 'peripherals', to: 'peripherals#all'
     end
   end
   root "api/v1/offices#index"

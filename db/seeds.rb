@@ -23,8 +23,8 @@ end
   Peripheral.create(name: Faker::Lorem.words(number: 1), description: Faker::Lorem.sentence, price: Faker::Number.decimal(l_digits: 2))
 end
 
-9.times do |reservation|
-  Reservation.create(start_date: Faker::Date.between(from: 4.days.ago, to: 2.days.ago), end_date: Faker::Date.between(from: 1.days.ago, to: Date.today), peripherals: [], services: [], user_id: reservation+1, office_id: reservation+1)
+20.times do |reservation|
+  Reservation.create!(start_date: Faker::Date.between(from: 4.days.ago, to: 2.days.ago), end_date: Faker::Date.between(from: 1.days.ago, to: Date.today), peripherals: [], services: [], user_id: 1, office_id: 1)
 end
 
 p 'Created 9 users'

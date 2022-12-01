@@ -2,7 +2,7 @@ module Api
   module V1
     class PeripheralsController < ApplicationController
       before_action :set_peripheral, only: %i[show update destroy]
-      before_action :set_reservation
+      before_action :set_reservation, only: %i[index show create update destroy]
 
       # GET /peripherals
       def index
@@ -39,6 +39,10 @@ module Api
       # DELETE /peripherals/1
       def destroy
         @peripheral.destroy
+      end
+
+      def all
+        render json: Peripheral.all
       end
 
       private

@@ -1,7 +1,8 @@
 module Api
   module V1
     class ServicesController < ApplicationController
-      before_action :set_reservation
+      before_action :set_reservation, only: %i[index show create destroy]
+
       def index
         @services = @reservation.services
 
@@ -26,6 +27,10 @@ module Api
 
       def destroy
         Service.find(params[:id]).destroy
+      end
+
+      def all
+        render json: Service.all
       end
 
       private
