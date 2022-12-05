@@ -8,7 +8,7 @@
 require 'faker'
 
 9.times do
-  User.create(first_name: Faker::Name.first_name , last_name: Faker::Name.last_name, username: Faker::Name.middle_name)
+  User.create(first_name: Faker::Name.first_name , last_name: Faker::Name.last_name, username: Faker::Internet.username, email: Faker::Internet.email, password: "password")
   Service.create(name: Faker::Lorem.word, description: Faker::Lorem.sentence, price: Faker::Number.decimal(l_digits: 2))
   Peripheral.create(name: Faker::Appliance.equipment, description: Faker::Lorem.sentence, price: Faker::Number.decimal(l_digits: 2))
 end

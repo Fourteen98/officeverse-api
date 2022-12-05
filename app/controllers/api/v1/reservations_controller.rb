@@ -5,6 +5,7 @@ module Api
       before_action :set_reservation, only: %i[show update destroy]
 
       def index
+        @user = User.find(params[:user_id])
         @reservations = @user.reservations
         render json: @reservations, include: %i[office services peripherals]
       end
@@ -14,9 +15,9 @@ module Api
       end
 
       def create
-        @reservation = Reservation.new(start_date: params[:start_date], end_date: params[:end_date], office_id: params[:office_id], user_id: @user.id)
-        @reservation.service_ids = params[:service_ids]
-        @reservation.peripheral_ids = params[:peripheral_ids]
+        @reservation = Reservation.new(start_date: params[:start_date],
+          end_date: params[:end_date], office_id: params[:office_id],
+          user_id: params[:user_id], service_ids: params[:service_ids], peripheral_ids: params[:peripheral_ids])
         # binding.b
         # @reservation.service_ids << reservation_params[:service_ids]
 
@@ -39,9 +40,9 @@ module Api
       end
 
       # Only allow a list of trusted parameters through.
-      # def reservation_params
-      #   params.require(:reservation).permit(:start_date, :end_date, :office_id, :services, peripheral_ids: []).with_defaults(user_id: @user.id)
-      # end
+      def reservation_params
+        params.require(:reservation).permit(:start_date, :end_date, :user_id, :office_id, service_ids: [], peripheral_ids: [])
+      end
     end
   end
 end

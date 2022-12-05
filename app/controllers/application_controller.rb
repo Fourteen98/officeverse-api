@@ -8,7 +8,7 @@ class ApplicationController < ActionController::API
 
   # Use callbacks to share common setup or constraints between actions.
   def set_user
-    @user = User.find(params[:user_id])
+    @user = current_user
   end
 
   def configure_permitted_parameters

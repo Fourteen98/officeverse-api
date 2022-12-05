@@ -32,8 +32,8 @@ module Api
 
       def office_params
         current_user = User.first
-        params.require(:office).permit(:title, :description, :area, :occupancy, :basic_price, :address,
-                                       images: []).with_defaults(user_id: current_user.id)
+        params.require(:office).permit(:title, :description, :area, :occupancy, :basic_price, :address, :user_id,
+                                       images: [])
       end
     end
   end
