@@ -11,6 +11,7 @@
      /\Ahttp:\/\/192\.168\.0\.\d{1,3}(:\d+)?\z/
      resource "*",
        headers: :any,
+       expose: ["Authorization"],
        methods: [:get, :post, :put, :patch, :delete, :options, :head]
    end
  end

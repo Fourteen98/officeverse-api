@@ -6,11 +6,11 @@ module Api
 
       def index
         @reservations = @user.reservations
-        render json: @reservations, include: [:office, :services, :peripherals]
+        render json: @reservations, include: %i[office services peripherals]
       end
 
       def show
-        render json: @reservation, include: [:office, :services, :peripherals]
+        render json: @reservation, include: %i[office services peripherals]
       end
 
       def create
@@ -21,7 +21,7 @@ module Api
         # @reservation.service_ids << reservation_params[:service_ids]
 
         if @reservation.save
-          render json: @reservation, include: [:office, :services, :peripherals], status: :created
+          render json: @reservation, include: %i[office services peripherals], status: :created
         else
           render json: @reservation.errors, status: :unprocessable_entity
         end
