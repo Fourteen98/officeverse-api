@@ -3,6 +3,7 @@ class ApplicationController < ActionController::API
 
   include ActionController::MimeResponds
   respond_to :json
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -11,7 +12,7 @@ class ApplicationController < ActionController::API
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :username])
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[first_name last_name username])
     devise_parameter_sanitizer.permit(:sign_in) do |user_params|
       user_params.permit(:username, :email)
     end
