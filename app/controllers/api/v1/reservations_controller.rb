@@ -16,8 +16,8 @@ module Api
 
       def create
         @reservation = Reservation.new(start_date: params[:start_date],
-          end_date: params[:end_date], office_id: params[:office_id],
-          user_id: params[:user_id], service_ids: params[:service_ids], peripheral_ids: params[:peripheral_ids])
+                                       end_date: params[:end_date], office_id: params[:office_id],
+                                       user_id: params[:user_id], service_ids: params[:service_ids], peripheral_ids: params[:peripheral_ids])
         # binding.b
         # @reservation.service_ids << reservation_params[:service_ids]
 
