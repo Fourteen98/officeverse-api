@@ -33,6 +33,8 @@ paths:
                   type: number
                 address:
                   type: string
+                user_id:
+                  type: number
               required:
               - title
               - description
@@ -45,6 +47,36 @@ paths:
       summary: Retrieves all offices list
       tags:
       - Offices
+      responses:
+        '200':
+          description: successful
+  "/services":
+    post:
+      summary: Creates a service
+      tags:
+      - Services
+      parameters: []
+      responses:
+        '201':
+          description: service created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                price:
+                  type: number
+              required:
+              - name
+    get:
+      summary: Retrieves all services list
+      tags:
+      - Services
       responses:
         '200':
           description: successful
