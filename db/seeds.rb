@@ -16,7 +16,7 @@ end
 9.times do |office|
   Office.create(title: Faker::Lorem.word, description: Faker::Lorem.sentence,
                 area: rand(1...72), occupancy: rand(1...9),
-                images: [Faker::LoremFlickr.image(size: "400x300", search_terms: ['office']), Faker::LoremFlickr.image(size: "400x300", search_terms: ['offices'])], basic_price: Faker::Number.decimal(l_digits: 2), address: Faker::Address.full_address, user_id: office+1)
+                images: ["https://source.unsplash.com/random/400×300/?office", "https://source.unsplash.com/random/400×300/?office", "https://source.unsplash.com/random/400×300/?office"], basic_price: Faker::Number.decimal(l_digits: 2), address: Faker::Address.full_address, user_id: office+1)
 end
 
 9.times do |reservation|
