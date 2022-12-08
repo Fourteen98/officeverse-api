@@ -21,6 +21,7 @@ Rails.application.routes.draw do
       end
       resources :offices
       get 'services', to: 'services#all'
+      post 'services', to: 'services#create'
       get 'peripherals', to: 'peripherals#all'
     end
   end
