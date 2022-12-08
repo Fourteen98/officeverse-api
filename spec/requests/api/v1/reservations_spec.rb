@@ -14,8 +14,7 @@ RSpec.describe 'api/v1/user_id:/reservations', type: :request do
       let(:office_id) do
         Office.create(title: Faker::Lorem.word, description: Faker::Lorem.sentence,
                       area: rand(1...72), occupancy: rand(1...9),
-                      images: [Faker::LoremFlickr.image(size: '400x300', search_terms: ['office']),
-                               Faker::LoremFlickr.image(size: '400x300', search_terms: ['offices'])],
+                      images: [Faker::LoremFlickr.image(size: '400x300', search_terms: ['office'])],
                       basic_price: Faker::Number.decimal(l_digits: 2), address: Faker::Address.full_address, user_id: :user_id).id
       end
       post 'Creates a reservation' do
@@ -33,9 +32,8 @@ RSpec.describe 'api/v1/user_id:/reservations', type: :request do
         }
         response '201', 'reservation created' do
           let(:reservation) do
-            Reservation.create(start_date: Faker::Date.between(from: 4.days.ago, to: 2.days.ago),
-                               end_date: Faker::Date.between(from: 1.days.ago, to: Date.today), peripherals: [],
-                               services: [], user_id: :user_id, office_id: :office_id)
+            Reservation.create(start_date: Faker::Date.between(from: 4.days.ago, to: 2.days.ago), peripherals: [],
+                               end_date: Faker::Date.between(from: 1.days.ago, to: Date.today), services: [], user_id: :user_id, office_id: :office_id)
           end
           run_test!
         end
