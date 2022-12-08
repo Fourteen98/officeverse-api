@@ -50,6 +50,36 @@ paths:
       responses:
         '200':
           description: successful
+  "/peripherals":
+    post:
+      summary: Creates a peripheral
+      tags:
+      - Peripherals
+      parameters: []
+      responses:
+        '201':
+          description: peripheral created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                price:
+                  type: number
+              required:
+              - name
+    get:
+      summary: Retrieves all peripherals list
+      tags:
+      - Peripherals
+      responses:
+        '200':
+          description: successful
   "/services":
     post:
       summary: Creates a service

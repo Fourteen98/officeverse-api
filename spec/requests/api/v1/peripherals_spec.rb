@@ -1,12 +1,12 @@
 require "swagger_helper"
 
-RSpec.describe "api/v1/services", type: :request do
-  describe "POST /services/:id" do
-    path "/services" do
-      post "Creates a service" do
-        tags "Services"
+RSpec.describe "api/v1/peripherals", type: :request do
+  describe "POST /peripherals" do
+    path "/peripherals" do
+      post "Creates a peripheral" do
+        tags "Peripherals"
         consumes "application/json"
-        parameter name: :service, in: :body, schema: {
+        parameter name: :peripheral, in: :body, schema: {
                     type: :object,
                     properties: {
                       name: { type: :string },
@@ -15,17 +15,17 @@ RSpec.describe "api/v1/services", type: :request do
                     },
                     required: ["name"],
                   }
-        response "201", "service created" do
-          let(:service) do
-            { name: "test service", description: "This is a test service", price: 1 }
+        response "201", "peripheral created" do
+          let(:peripheral) do
+            { name: "test peripheral", description: "This is a test peripheral", price: 1 }
           end
           run_test!
         end
       end
     end
-    path "/services" do
-      get "Retrieves all services list" do
-        tags "Services"
+    path "/peripherals" do
+      get "Retrieves all peripherals list" do
+        tags "Peripherals"
         produces "application/json"
 
         response "200", "successful" do
