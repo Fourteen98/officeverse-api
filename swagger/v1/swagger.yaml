@@ -1,0 +1,48 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  POST /offices/:id:
+    post:
+      summary: Creates an office
+      tags:
+      - Offices
+      parameters: []
+      responses:
+        '201':
+          description: office created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+                area:
+                  type: string
+                occupancy:
+                  type: integer
+                images:
+                  type: string
+                basic_price:
+                  type: decimal
+                address:
+                  type: string
+              required:
+              - title
+              - description
+              - area
+              - occupancy
+              - images
+              - basic_price
+              - address
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com
