@@ -19,6 +19,7 @@ RSpec.describe "api/v1/offices", type: :request do
                       images: { type: :string },
                       basic_price: { type: :number },
                       address: { type: :string },
+                      user_id: { type: :number },
                     },
                     required: ["title", "description", "area", "occupancy", "images", "basic_price", "address"],
                   }
