@@ -1,34 +1,34 @@
-require "swagger_helper"
+require 'swagger_helper'
 
-RSpec.describe "api/v1/services", type: :request do
-  describe "POST /services/:id" do
-    path "/services" do
-      post "Creates a service" do
-        tags "Services"
-        consumes "application/json"
+RSpec.describe 'api/v1/services', type: :request do
+  describe 'POST /services/:id' do
+    path '/services' do
+      post 'Creates a service' do
+        tags 'Services'
+        consumes 'application/json'
         parameter name: :service, in: :body, schema: {
-                    type: :object,
-                    properties: {
-                      name: { type: :string },
-                      description: { type: :string },
-                      price: { type: :number },
-                    },
-                    required: ["name"],
-                  }
-        response "201", "service created" do
+          type: :object,
+          properties: {
+            name: { type: :string },
+            description: { type: :string },
+            price: { type: :number }
+          },
+          required: ['name']
+        }
+        response '201', 'service created' do
           let(:service) do
-            { name: "test service", description: "This is a test service", price: 1 }
+            { name: 'test service', description: 'This is a test service', price: 1 }
           end
           run_test!
         end
       end
     end
-    path "/services" do
-      get "Retrieves all services list" do
-        tags "Services"
-        produces "application/json"
+    path '/services' do
+      get 'Retrieves all services list' do
+        tags 'Services'
+        produces 'application/json'
 
-        response "200", "successful" do
+        response '200', 'successful' do
           run_test!
         end
       end

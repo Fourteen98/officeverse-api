@@ -7,11 +7,11 @@ RSpec.describe 'Services', type: :request do
       expect(response).to have_http_status(:success)
     end
 
-    #it 'returns a service' do
+    # it 'returns a service' do
     #  service = Service.create(name: 'Test', description: 'Test', price: 10)
     #  get "/api/v1/services/#{service.id}"
     #  expect(response).to have_http_status(:success)
-    #end
+    # end
 
     it 'creates a service' do
       get '/api/v1/services', params: { service: { name: 'Test', description: 'Test', price: 10 } }
