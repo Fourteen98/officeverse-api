@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       get 'services', to: 'services#all'
       post 'services', to: 'services#create'
       get 'peripherals', to: 'peripherals#all'
+      post 'peripherals', to: 'peripherals#create'
     end
   end
   root "api/v1/offices#index"
