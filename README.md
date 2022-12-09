@@ -39,20 +39,21 @@ After you're finished please remove all the comments and instructions!
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
+  <!-- - [🚀 Live Demo](#live-demo) -->
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
   - [Install](#install)
   - [Usage](#usage)
   - [Run tests](#run-tests)
-  - [Deployment](#triangular_flag_on_post-deployment)
+  <!-- - [Deployment](#triangular_flag_on_post-deployment) -->
 - [👥 Authors](#authors)
-- [🔭 Future Features](#future-features)
+- [Kanban Board](#kanban)
+<!-- - [🔭 Future Features](#future-features) -->
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
-- [🙏 Acknowledgements](#acknowledgements)
-- [❓ FAQ](#faq)
+<!-- - [🙏 Acknowledgements](#acknowledgements) -->
+<!-- - [❓ FAQ](#faq) -->
 - [📝 License](#license)
 
 <!-- PROJECT DESCRIPTION -->
@@ -70,6 +71,8 @@ After you're finished please remove all the comments and instructions!
 ### Tech Stack <a name="tech-stack"></a>
 
 > This a Rails Api with endpoints for all the models we use in the Front-end. Each model have validations for data integtity.
+
+### [Front-End Repository](https://github.com/Fourteen98/officeverse-frontend)
 
 <details>
   <summary>Client</summary>
@@ -212,7 +215,7 @@ Example:
 
 ## 👥 Authors <a name="authors"></a>
 
-> This is the awesome team that built this project.
+> This is the awesome team (4 members) that built this project.
 
 👤 **Raul A Ospina** 🧑🏻‍💻
 
@@ -240,6 +243,11 @@ Example:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## Kanban Board <a name="kanban"></a>
+
+Initial [Kanban Board](https://user-images.githubusercontent.com/44606356/203862531-d6b158e4-fcbe-4ef3-b11a-a30f6339c3d6.png)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 <!-- FUTURE FEATURES -->
 
 <!-- ## 🔭 Future Features <a name="future-features"></a>
@@ -302,7 +310,7 @@ I would like to thank...
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./MIT) licensed.
+This project is [MIT](./MIT.md) licensed.
 <!-- 
 _NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._ -->
 
