@@ -1,0 +1,154 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/offices":
+    post:
+      summary: Creates an office
+      tags:
+      - Offices
+      parameters: []
+      responses:
+        '201':
+          description: office created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+                area:
+                  type: string
+                occupancy:
+                  type: number
+                images:
+                  type: string
+                basic_price:
+                  type: number
+                address:
+                  type: string
+                user_id:
+                  type: number
+              required:
+              - title
+              - description
+              - area
+              - occupancy
+              - images
+              - basic_price
+              - address
+    get:
+      summary: Retrieves all offices list
+      tags:
+      - Offices
+      responses:
+        '200':
+          description: successful
+  "/peripherals":
+    post:
+      summary: Creates a peripheral
+      tags:
+      - Peripherals
+      parameters: []
+      responses:
+        '201':
+          description: peripheral created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                price:
+                  type: number
+              required:
+              - name
+    get:
+      summary: Retrieves all peripherals list
+      tags:
+      - Peripherals
+      responses:
+        '200':
+          description: successful
+  "/user_id:/reservations":
+    post:
+      summary: Creates a reservation
+      tags:
+      - Reservation
+      parameters: []
+      responses:
+        '201':
+          description: reservation created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                start_date:
+                  type: string
+                  format: date
+                end_date:
+                  type: string
+                  format: date
+                user_id:
+                  type: number
+                office_id:
+                  type: number
+              required:
+              - start_date
+              - end_date
+              - user_id
+              - office_id
+    get:
+      summary: Retrieves user's reservations
+      tags:
+      - Reservations
+      responses:
+        '200':
+          description: successful
+  "/services":
+    post:
+      summary: Creates a service
+      tags:
+      - Services
+      parameters: []
+      responses:
+        '201':
+          description: service created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                price:
+                  type: number
+              required:
+              - name
+    get:
+      summary: Retrieves all services list
+      tags:
+      - Services
+      responses:
+        '200':
+          description: successful
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: 127.0.0.1:4000/api/v1
