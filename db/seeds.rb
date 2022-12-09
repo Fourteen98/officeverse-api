@@ -9,14 +9,14 @@ require 'faker'
 
 9.times do
   User.create(first_name: Faker::Name.first_name , last_name: Faker::Name.last_name, username: Faker::Internet.username, email: Faker::Internet.email, password: "password")
-  Service.create(name: Faker::Lorem.word, description: Faker::Lorem.sentence, price: Faker::Number.decimal(l_digits: 2))
+  Service.create(name: Faker::App.name, description: Faker::Lorem.sentence, price: Faker::Number.decimal(l_digits: 2))
   Peripheral.create(name: Faker::Appliance.equipment, description: Faker::Lorem.sentence, price: Faker::Number.decimal(l_digits: 2))
 end
 
 9.times do |office|
-  Office.create(title: Faker::Lorem.word, description: Faker::Lorem.sentence,
+  Office.create(title: Faker::Address.community, description: Faker::Lorem.paragraphs(number: 1),
                 area: rand(1...72), occupancy: rand(1...9),
-                images: ["https://source.unsplash.com/random/400×300/?office", "https://source.unsplash.com/random/400×300/?office", "https://source.unsplash.com/random/400×300/?office"], basic_price: Faker::Number.decimal(l_digits: 2), address: Faker::Address.full_address, user_id: office+1)
+                images: ["https://source.unsplash.com/random/400×300/?office", "https://source.unsplash.com/random/400×300/?office-space", "https://source.unsplash.com/random/400×300/?office-desk"], basic_price: Faker::Number.decimal(l_digits: 2), address: Faker::Address.full_address, user_id: office+1)
 end
 
 9.times do |reservation|
